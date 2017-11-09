@@ -1,0 +1,76 @@
+<div class="container">
+
+  <form class="well form-horizontal" name="loginForm" ng-submit="onSubmit(loginForm.$valid)" novalidate="novalidate">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend><center><h2><b>Sign in Form</b></h2></center></legend><br>
+
+      <!-- Text input-->
+      <div id="error">
+      </div>
+
+      <div class="form-group" ng-class="
+      {'has-error':!loginForm.emailName.$valid && (!loginForm.$pristine || loginForm.$submitted),
+      'has-success':loginForm.emailName.$valid && (!loginForm.$pristine || loginForm.$submitted)}
+
+      ">
+      <label class="col-md-4 control-label">Email Id</label>  
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input name="emailName" placeholder="Email id" class="form-control" id="email" type="email" required="required" ng-model="loginFormModel.email">
+
+          <p class="help-block" ng-show="loginForm.emailName.$error.required && (!loginForm.$pristine || loginForm.$submitted)">
+           this field is required
+         </p>
+
+         <p class="help-block" ng-show="loginForm.emailName.$error.email && (!loginForm.$pristine || loginForm.$submitted)">
+          please enter atleast @ symbol
+        </p>
+
+        <!--  <pre>validation {{loginForm.emailName.$error}}</pre> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Text input-->
+
+  <div class="form-group" ng-class="
+  {'has-error':!loginForm.user_password.$valid && (!loginForm.$pristine || loginForm.$submitted),
+  'has-success':loginForm.user_password.$valid && (!loginForm.$pristine || loginForm.$submitted)}
+
+  ">
+  <label class="col-md-4 control-label" >Password</label> 
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input name="user_password" id="user_password" placeholder="Password" class="form-control"  type="password" required="required" ng-model="loginFormModel.Password">
+      <p class="help-block" ng-show="loginForm.user_password.$error.required && (!loginForm.$pristine || loginForm.$submitted)">
+       this field is required
+     </p>
+   </div>
+ </div>
+</div>
+
+
+<!-- Text input-->
+
+
+<!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4"><br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" id ="submit_buttton" name="submit_buttton">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<pre>{{loginForm | json}}</pre>
+
+</div>
+    </div><!-- /.container -->

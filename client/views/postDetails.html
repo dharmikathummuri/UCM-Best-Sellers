@@ -1,0 +1,55 @@
+<a href="#viewAd" class="pull-left"><strong>Go Back</strong></a>
+<div class="clearfix"></div>
+</br>
+<div class ="container">
+  <div class="panel panel-default" ng-init="getPostDetails(); getLikes()">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{singlePost[0].ad_title}}<span class="pull-right">Category:{{singlePost[0].ad_category}}</span></h3>
+
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <img  src="{{singlePost[0].images}}" alt="name" class="img-thumbnail" style="outline: none;"/>
+       
+        </div>
+        <div class="col-md-6">
+
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Description : </strong>{{singlePost[0].ad_description}}</li>
+            <li class="list-group-item"><strong>Posted By : </strong>{{singlePost[0].name}}</li>
+            <li class="list-group-item"><strong>Phone :</strong> {{singlePost[0].phone}}</li>
+            <li class="list-group-item"><strong>Posted Date :</strong> {{singlePost[0].posted_date | date:'medium'}}</li>
+
+          </ul>
+
+        </div>
+      </div>
+      <div class="pull-left">
+
+      </div>
+      <div class="pull-right">
+
+        <label class="text-primary" ng-if="condition"><i>{{textLike}}</i></label>&nbsp; &nbsp;<button class="btn btn-primary" id="clickId" ng-click="clickLike(singlePost[0].id)">
+          <span class="glyphicon glyphicon-thumbs-up"><i>&nbsp;<span ng-model="likes" ng-bind="likes" ></span>&nbsp;Likes</i></span>
+         </button>&nbsp;
+
+         
+     <!--    <div ng-if="result"> -->
+        <a href="#updatePost/{{singlePost[0].id}}"  ng-if="result"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"><i>&nbsp;Update</i></span></button></a> &nbsp;
+
+
+        <a href=""><button type="button" class="btn btn-primary"  ng-if="result" ng-click="removePost(singlePost[0].id)"><span class="glyphicon glyphicon-trash"><i>&nbsp;Delete</i></span></button></a>
+
+        <a href=""><button type="button" class="btn btn-primary"  ng-if="result" ng-click=""><span class="glyphicon glyphicon-ban-circle"><i>&nbsp;Disable</i></span></button></a>
+
+        <a href=""><button type="button" class="btn btn-primary"  ng-if="!result" ng-click="getUserId(singlePost[0].id)"><span class="glyphicon glyphicon-comment"><i>&nbsp;Message</i></span></button></a>
+
+
+     <!--  </div> -->
+
+      </div>
+    </div>
+  </div>
+
+

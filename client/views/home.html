@@ -1,0 +1,84 @@
+
+<div class="container"  ng-init="getPosts()">
+		<div ng-hide="loggedIn">
+			<div class="jumbotron jumbotron-fluid">
+
+				
+
+				<p class="lead">Hello Welcome to <strong>UCM Best Sellers</strong> We are here to provide you a platform for posting/viewing ad's .Join this community by Registering with this website. Thanks and keep posting!!! </p>
+				<p><a class="btn btn-lg btn-success" href="#register" role="button">Get Registered today</a></p>
+
+			</div>
+		</div> <!-- end ng-hide -->
+
+	<!-- buttons specitic to users -->
+
+<div class="list-group" ng-show="loggedIn">
+	<h2><span class="label label-default">{{userName}}'s Dashboard !</span></h2><br/>
+
+
+  <a href="#viewUserPosts/{{id}}" ng-click="getAccess()">
+  	<button type="button" class="list-group-item list-group-item-warning"><span class="text-center">View Your posts</span></button></a>
+ 	<a href="#updateProfile/{{id}}" ng-click="getAccess()"> <button type="button" class="list-group-item list-group-item-warning">Edit your Profile</button></a>
+ 	
+   <a href="#postsliked" ng-click="getAccess()"><button type="button" class="list-group-item list-group-item-warning">Posts you liked</button></a>
+   <a href="#yourMessages" ng-click="getAccess()"><button type="button" class="list-group-item list-group-item-warning">Recieved Messages</button></a>
+   <a href="#sentMessages" ng-click="getAccess()"><button type="button" class="list-group-item list-group-item-warning">Sent Messages</button></a>
+
+   
+</div>
+
+
+	<!-- Example row of columns -->
+<section class="p-0" id="portfolio">
+<div class="container-fluid">
+	<div class="row">
+			<div class="col-lg-4 col-sm-6 ">
+			<a class="portfolio-box" href="#postAd">
+				<div class="contain">
+					<img class="img-fluid img-thumbnail img-responsive img-hover" src="images/buyandsell.jpg" alt="">
+					<div class="overlay">
+						<div class="text">Click Here To Donate</div>
+					</div>
+					<div class="portfolio-box-caption">
+						<div class="portfolio-box-caption-content">
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-4 col-sm-6 ">
+			<a class="portfolio-box" href="#postAd">
+				<div class="contain">
+					<img class="img-fluid img-thumbnail img-responsive img-hover" src="images/Donation-Box.jpg" alt="">
+					<div class="overlay">
+						<div class="text">Click Here To Donate</div>
+					</div>
+					<div class="portfolio-box-caption">
+						<div class="portfolio-box-caption-content">
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-4 col-sm-6">
+			<a class="portfolio-box" href="#viewAd">
+				<div class="contain">
+					<img class="img-fluid img-thumbnail img-responsive" src="images/sale.jpg" alt="">
+					<div class="overlay">
+						<div class="text">Click Here To View Ad's</div>
+					</div>
+					<div class="portfolio-box-caption">
+						<div class="portfolio-box-caption-content">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</a>
+		</div>
+
+</div>
+</div>
+</section>
+</div>

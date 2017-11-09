@@ -1,0 +1,53 @@
+
+
+<div class="container" ng-init="getPosts()">
+			<div class="page-header head">
+					 <h1><strong><span class="label label-default ">{{param1}}</span></strong></h1>
+				</div>
+				<center>
+					<h1><label class="label label-default" ng-if="add.length==0">No posts to display</label></h1><br/></br>
+					
+
+					<center><a href="#postAd" class="btn btn-primary" ng-if="add.length==0">Post An Advertisement</a></center>
+					
+
+				</center>
+	<div ng-repeat="exp in add | pageFilter : (currentPage-1)*pageSize | limitTo : pageSize">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="#AdDetails/{{exp.id}}">{{exp.ad_title}}</a><span class="pull-right">category:{{exp.ad_category}}</span></h3>
+				<div class="clearfix"></div>
+			</div>
+			<!-- panel heading ending -->
+
+			<div class="panel panel-body">
+
+				<div class="row">
+					<div class="col-md-4">
+			 
+						<img  src="{{exp.images}}" alt="name" class="img-thumbnail" style="outline: none;"/>
+					</div>
+
+					<div class="col-md-8">
+
+						<ul class="list-group">
+							<li class="list-group-item"><p><strong>Description: </strong>  {{exp.ad_description}} </p></li>
+							<li class="list-group-item"><strong>Posted By: </strong> {{exp.name}} </li>
+
+							<li class="list-group-item"><strong>Contact number:</strong> {{exp.phone}}</li>
+							<li class="list-group-item"><strong>Posted Date:</strong>{{exp.posted_date | date:'medium' }} </li>
+						</ul>
+						<div class="pull-right"><a href="#AdDetails/{{exp.id}}" class="btn btn-primary">More details</a></div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+</div>
+	<div id="pagin">
+		<center><ul uib-pagination total-items="add.length" ng-model="currentPage" items-per-page="pageSize"></ul></center>
+	</div>

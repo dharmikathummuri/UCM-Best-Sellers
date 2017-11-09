@@ -1,0 +1,82 @@
+/* .container {
+    padding: 80px 120px;
+
+
+}*/
+.navbar-nav a{
+  color: dodgerblue !important;
+}
+
+.head{
+color:#424242;
+
+}
+
+.jumbotron{
+
+
+     background:#bcaaa4  ;
+}
+
+
+ .carousel-inner{
+       height: 500px;
+    }
+
+/*.panel:hover{
+
+    display: block;
+    background: #555;
+}*/
+
+
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-menu a:hover {background-color: #f1f1f1}
+.contain {
+  position: relative;
+  
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #bcaaa4;
+}
+
+.contain:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.text-center
+{
+    text-align: center !important;
+}
+
+.my-disable{
+    pointer-events:none;
+}

@@ -1,0 +1,36 @@
+
+
+<div class="container" ng-init="getMessages()">
+	<div class="page-header head">
+		 <h1><strong><span class="label label-default">{{name}}'s Inbox</span></strong></h1>
+		</div>
+		<center><h1><label class="label label-default" ng-if="set.length==0">You have no messages</label></h1><br/></br></center>
+	
+	<div class="panel panel-body" ng-if="!set.length==0">
+	<table class="table table-hover"  >
+			<thead>
+				<th>Message from</th>
+				<th>Subject</th>
+				<th>Message Details</th>
+				<th>Recieved Date</th>
+				<th>Delete</th>
+
+			</thead>
+			
+			<tr ng-repeat="rowData in set | pageFilter : (currentPage-1)*pageSize | limitTo : pageSize" >
+					<td>{{rowData.name}}</td>
+					<td>{{rowData.subject}}</td>
+					<td>{{rowData.message}}</td>
+					<td>{{rowData.msg_date | date:'fullDate'}}</td>
+					<td ><i class="glyphicon glyphicon-trash" ng-click="deleteMessage(rowData.message_id)"></i></td>
+
+			</tr>
+				
+
+	</table>
+</div>
+</div>
+
+	<div id="pagin">
+		<center><ul uib-pagination total-items="add.length" ng-model="currentPage" items-per-page="pageSize"></ul></center>
+	</div>

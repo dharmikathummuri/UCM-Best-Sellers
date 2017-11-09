@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "description": "",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.5.0",
+    "angular-auto-validate": "^1.19.6",
+    "jquery": "^3.2.1",
+    "bootbox.js": "bootbox#^4.4.0",
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,213 @@
+  <!DOCTYPE html>
+  <html ng-app="myApp" ng-init="getUser()">
+  <head>  
+    <meta http-equiv="Cache-control" content="no-cache"> 
+    
+    <!-- <meta charset="utf-8"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/ucm.css">
+
+    <!-- <base href="/UCM_Best_SellersASP" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+    <script src="libs/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="bower_components/bootbox.js"></script>
+    <script src="bower_components/bootstrap/dist/js/boostrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/jquery.min.js"></script>
+
+  <script src="https://code.angularjs.org/1.4.0/angular-animate.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+    <!-- Controllers -->
+    <script src="controller/donateCtrl.js"></script>
+    <script src="controller/loginCtrl.js"></script>
+    <script src="controller/navCtrl.js"></script>
+    <script src="controller/postAdCtrl.js"></script>
+    <script src="controller/registerCtrl.js"></script>
+    <script src="controller/viewAdCtrl.js"></script>
+    <script src="controller/postDetailsCtrl.js"></script>
+    <script src="controller/updateDetailsCtrl.js"></script>
+    <script src="controller/viewDonCtrl.js"></script>
+    <script src="controller/mainCtrl.js"></script>
+    <script src="controller/catCtrl.js"></script>
+    <script src="controller/viewPostsCtrl.js"></script>
+    <script src="controller/updateProfileCtrl.js"></script>
+    <script src="controller/postLikedCtrl.js"></script>
+    <script src="controller/messageUserCtrl.js"></script>
+    <script src="controller/yourMessagesCtrl.js"></script>
+    <script src="controller/sentMessagesCtrl.js"></script>
+    <!-- Directives -->
+    <script src="directives/fileModel.js"></script>
+
+    
+    <!-- Services -->
+    <script src="services/UserFactory.js"></script>
+    <script src="services/multiPartForm.js"></script>
+    <script src="services/accessFac.js"></script>
+    <script src="services/multiPartFormPost.js"></script>
+    <script src="services/Auth.js"></script>
+  
+
+    <script src="filters/pageFilter.js"></script>
+   
+    
+    <title>UCM Best Sellers</title>
+
+    <style>
+    body {
+
+     background-image: url("images/5g.jpg");
+   }
+
+   .fixed-height {
+    max-height: 400px;
+  } 
+  img {max-width:100%}
+  .something {
+    width:340px;
+    height:260px;
+  }
+
+  /*.panel-body {
+    background:#D5D5D5;}*/
+
+
+  </style>
+
+
+</head>
+
+<body ng-init="getAccess()">
+
+       <div class="masthead">
+        <h3 class="active"><a href="#home">UCM-Best Sellers</a></h3>
+
+  <nav class="navbar  navbar-inverse bg-inverse" ng-controller="navCtrl">
+    <!--    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top" ng-controller="navCtrl"> -->
+      <ul class="nav nav-justified">
+        <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+        <li><a href="#postAd" ng-click="getAccess()">Post Advertisement</a></li>
+
+        <li class="dropdown">
+
+
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">View Posts&nbsp;<span class="caret"></span></a></a>  
+          <ul class="dropdown-menu">
+            <li><a href="#viewAd" ng-click="getAccess()"><span title="view ads">Advertisements</span></a></li>
+            <li><a href="#viewDonations" ng-click="getAccess()"><span title="view donations">Donations</span></a></li>
+
+          </ul> 
+
+
+        </li>
+
+
+
+        <!-- end dropdown -->
+        
+        
+
+
+        <li class="form-group">
+
+
+            <form class="navbar-form">
+              <select ng-model="selected" ng-change="category(); getAccess()" class="form-control" style="width: 200px;">
+               <span class="glyphicon glyphicon-search"></span> <option value="cars">cars</option>
+                <option value="Furniture">Furniture</option>
+                <option value="electronics">electronics</option>
+                <option value="Phones">Phones</option>
+                <option value="Fashion" >Fashion</option>
+                <option value="Accomodations">Accomodations</option>
+              </select>
+            </form>
+
+          </li>
+
+
+
+          <!-- end dropdown -->
+
+
+
+
+          <li class="dropdown">
+            
+
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">Login/Register&nbsp;<span class="caret"></span></a></a>  
+              <ul class="dropdown-menu">
+                <li><a href="#login"><span title="login">Login</span></a></li>
+                <li><a href="#register"><span title="register">Create Profile</span></a></li>
+                
+
+              </ul> 
+
+
+            </li>
+
+            
+            <li><a href="" ng-click="logout()">logout</a></li>
+
+    
+
+              
+              
+            
+          </ul>
+
+
+          
+
+
+          <!-- end of nav bar -->
+
+
+
+        </nav>
+      </div>
+      <!-- navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top
+      
+        nav nav-justified -->
+
+        <div class="row">
+
+          <div  class="col-sm-6 col-sm-push-8">
+          </div>
+          <div id="viewId" ng-view>
+            
+           
+          </div>
+          
+        </div>
+
+
+        <!--    </div> -->
+
+        <footer class="bg-faded text-center py-5">
+          <div class="container">
+            <strong><h3 class="m-0">Copyright &copy; UCM's Best-Sellers 2017</h3></strong>
+          </div>
+        </footer>
+
+
+
+
+      </body>
+
+
+      </html>
+
+
