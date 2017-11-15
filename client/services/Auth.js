@@ -18,16 +18,12 @@ return{
   isLoggedIn : function(){
     //return(user)? user : false;
     var status = $cookies.get("userCookie");
-    if(user==""){
-
-      return false;
-    }
-
-    else{
+    if(user){
 
       return true;
+    }
 
-    } 
+     return false;  
   },
   logout: function(){
   

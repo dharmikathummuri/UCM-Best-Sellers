@@ -54,7 +54,8 @@ router.post('/upload',function(req, response) {
       				"phone":reqObj.contact,
       				"posted_date":reqObj.postDate,
       				"type": reqObj.optradio,
-      				"images": myFile1
+      				"images": myFile1,
+              "disabled":reqObj.disabled
 
       			}; 
 
@@ -85,6 +86,72 @@ router.post('/upload',function(req, response) {
 
 
   });
+
+router.get('/getStatus/:_id',function(req,res){
+
+    var pid = req.params._id;
+    console.log("pid"+pid);
+    var sql = "select disabled from post_ad where id="+"'"+pid+"'";
+     db.query(sql,function(err,results){
+            if(err){
+
+              console.log(err);
+            }
+            else{
+              console.log("hello from disabled");
+              console.log(results);
+                // res.json({
+                //       status:true,
+                //       message:'updated',
+                //       data:results
+                //     })
+              
+            }
+
+        });
+
+
+});
+
+router.get('/disabled',function(req,res){
+
+  console.log(JSON.stringify(req.query.uid));
+  console.log(req.query.condition);
+  var cond =req.query.condition;
+  var uid = req.query.uid;
+
+      if(cond=="disabled"){
+        var sql = "update post_ad set disabled='yes' where id="+"'"+uid+"'";
+      }
+
+      if(cond=="enabled"){
+        var sql = "update post_ad set disabled='no' where id="+"'"+uid+"'";
+      }
+
+
+
+      console.log(sql);
+          db.query(sql,function(err,rows,fields){
+            if(err){
+
+              console.log(err);
+            }
+            else{
+              console.log("hello from disabled");
+              console.log(rows);
+                res.json({
+                      status:true,
+                      message:'updated'
+                    })
+              
+            }
+
+        });
+        
+
+
+
+});
 
 router.get('/getname/:_id',function(req,res){
 

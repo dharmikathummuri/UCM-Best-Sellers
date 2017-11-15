@@ -1,9 +1,11 @@
-myApp.controller("catCtrl",['$scope','$http','$routeParams','$location','$route','accessFac',function($scope,$http,$routeParams,$location,$route,accessFac){
+myApp.controller("catCtrl",['$scope','$http','$routeParams','$location','$route','accessFac','Auth',function($scope,$http,$routeParams,$location,$route,accessFac,Auth){
 
 	console.log("hi");
 
 		$scope.param1 = $routeParams.param;
    		 $scope.add=[];
+   		 	$scope.auth = Auth.getUser();
+	$scope.userId = $scope.auth.data.UserId;
    		
 	$scope.getPosts = function(){
 		console.log("params"+ $scope.param1);
@@ -43,6 +45,14 @@ myApp.controller("catCtrl",['$scope','$http','$routeParams','$location','$route'
 		
 		accessFac.getPermission();     
 	}
+
+	    $scope.handleClick = function(id){
+
+	    			console.log(id+"in handle click");
+	    			$location.path('/AdDetails/'+id);
+
+	    }
+
 
 
 

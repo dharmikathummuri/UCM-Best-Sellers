@@ -345,6 +345,32 @@ myApp.config(['$routeProvider','$locationProvider',function($routeProvider,$loca
 
 
 
+  }).when('/replyUser/:id',{
+     controller:'replyUserCtrl',
+      templateUrl:'views/replyUser.html',
+      resolve:{
+        "check":function(accessFac,$location,$route,$q){   //function to be resolved, accessFac and $location Injected
+           var defer = $q.defer();
+            if(accessFac.checkPermission()){    //check if the user has permission -- This happens before the page loads
+                   // $location.path('/category');
+                   defer.resolve();
+                 
+                 var id= $route.current.params.id;
+                   
+            }else{
+               
+                $location.path('/login');    
+                defer.reject(); 
+                          
+                bootbox.alert("please Login/register to access this page");
+            }
+            return defer.promise;
+        }
+      }
+
+
+
+
   }).otherwise({
       redirectTo: '/home'
   });

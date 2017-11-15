@@ -23,6 +23,7 @@
 					<td>{{rowData.message}}</td>
 					<td>{{rowData.msg_date | date:'fullDate'}}</td>
 					<td ><i class="glyphicon glyphicon-trash" ng-click="deleteMessage(rowData.message_id)"></i></td>
+					<td class="btn btn-danger" ng-click="recallMessage(rowData.message_id)">recall</td>
 
 			</tr>
 				

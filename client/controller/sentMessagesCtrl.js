@@ -89,6 +89,44 @@ myApp.controller('sentMessagesCtrl',['$scope','$http','Auth','$location','$route
 
 	};
 
+	$scope.recallMessage = function(index){
+
+			console.log(index + "hello recall message");
+			bootbox.confirm("you want to delete this message for everyone?",function(ans){
+
+
+					if(ans==true){
+
+					
+
+						$http.delete('/details/recallMessage/'+index).success(function(response){
+
+
+									console.log(response);
+									if(response.status==true){
+
+										$route.reload();
+										
+										bootbox.alert("message deleted permanently");
+										 
+									}
+
+
+						});
+
+
+				}
+				else{
+
+
+
+				}
+
+
+			});
+
+	};
+
 
 
 

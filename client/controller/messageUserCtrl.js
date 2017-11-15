@@ -23,50 +23,7 @@ myApp.controller("messageUserCtrl",['$scope','$http','$routeParams','Auth','acce
 				 	 });
 	}
 
-	// $scope.getTitle = function(){
 
-
-	// 		UserFactory.getPostTitle(pid).then(function(resp){
-	// 		console.log(resp);
-	// 		$scope.res = resp;
-	// 		console.log("get subject"+$scope.res);
-	// 			$scope.signature = "Regarding: ";
-	// 			$scope.subject = $scope.signature+$scope.res;	
-			
-
-	// 		}).catch(function(data, status) {
-	// 			    console.error('Gists error', resp.status, resp.data);
-	// 		})
-	// 			  	.finally(function() {
-	// 			    console.log("finally finished gists");
-	// 		 });
-
-
-
-	// }
-
-
-	// $scope.getName = function(){
-
-
-		
-	// 		$q.all([
-	// 	    	UserFactory.getPostTitle(pid),
-	// 	    	UserFactory.getUserName(pid)
-	// 	    ]).then(function(results) {
-	// 	       /* enter your logic here */
-	// 	       console.log(results[0]);
-	// 	       console.log(results[1].firstName);
-	// 	        console.log(results[1].lastName);
-	// 	        $scope.signature = "Regarding: ";
-	// 	        $scope.title = results[0];
-	// 	        $scope.subject =   $scope.signature +  $scope.title;
-	// 	        $scope.res = results[1];
-	// 	        $scope.userName = $scope.res.firstName +" "+$scope.res.lastName;	
-
-	// 	    });
-
-	// }
 
 	$scope.onSubmit = function(){
 

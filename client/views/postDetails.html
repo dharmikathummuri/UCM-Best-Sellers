@@ -2,7 +2,7 @@
 <div class="clearfix"></div>
 </br>
 <div class ="container">
-  <div class="panel panel-default" ng-init="getPostDetails(); getLikes()">
+  <div class="panel panel-default" ng-init="getPostDetails(); getLikes();">
     <div class="panel-heading">
       <h3 class="panel-title">{{singlePost[0].ad_title}}<span class="pull-right">Category:{{singlePost[0].ad_category}}</span></h3>
 
@@ -40,8 +40,12 @@
 
 
         <a href=""><button type="button" class="btn btn-primary"  ng-if="result" ng-click="removePost(singlePost[0].id)"><span class="glyphicon glyphicon-trash"><i>&nbsp;Delete</i></span></button></a>
+     
 
-        <a href=""><button type="button" class="btn btn-primary"  ng-if="result" ng-click=""><span class="glyphicon glyphicon-ban-circle"><i>&nbsp;Disable</i></span></button></a>
+            <a href=""><button type="button" class="btn btn-primary" ng-if="result" ng-click="disable(singlePost[0].id)"><span class="glyphicon glyphicon-ban-circle"><i>&nbsp;Disable</i></span></button></a>
+
+            <a href=""><button type="button" class="btn btn-primary" ng-if="result" ng-click="enable(singlePost[0].id)"><span class="glyphicon glyphicon-ok-circle"><i>&nbsp;Enable</i></span></button></a>
+       
 
         <a href=""><button type="button" class="btn btn-primary"  ng-if="!result" ng-click="getUserId(singlePost[0].id)"><span class="glyphicon glyphicon-comment"><i>&nbsp;Message</i></span></button></a>
 

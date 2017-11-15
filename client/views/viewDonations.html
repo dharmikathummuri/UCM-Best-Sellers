@@ -38,7 +38,17 @@
               <li class="list-group-item"><strong>Contact number:</strong> {{exp.phone}}</li>
               <li class="list-group-item"><strong>Posted Date:</strong>{{exp.posted_date |date:'medium'}} </li>
             </ul>
-            <div class="pull-right"><a href="#AdDetails/{{exp.id}}" class="btn btn-primary">More details</a></div>
+            
+              <div ng-if="exp.disabled=='yes' && exp.UserId!=userId">
+            <div class="alert alert-danger autosized" role="alert">This advertisment is closed by the user</div>
+             </div>
+
+            <!-- <div class="pull-right"><a href="#AdDetails/{{exp.id}}" class="btn btn-primary">More details</a></div> -->
+
+            <div class="pull-right"><button class="btn btn-primary" ng-disabled="exp.disabled=='yes'" ng-click="handleClick(exp.id)">More details</button></div>
+          <!--   ng-if="exp.UserId!=userId"  -->
+
+
           </div>
 
         </div>

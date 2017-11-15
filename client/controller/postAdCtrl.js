@@ -27,7 +27,7 @@ myApp.controller("postAdCtrl",['$scope','multiPartFormPost','$filter','$location
 	$scope.postAdModel.userId = $scope.userId;
 	$scope.postAdModel.yourName = $scope.auth.data.first_name +" "+ $scope.auth.data.last_name;
 	$scope.postAdModel.contact =  $scope.auth.data.contact_no;
-			
+	$scope.postAdModel.disabled= "no";	
 	$scope.postAdModel.optradio = $scope.optradio;
 	 $scope.postAdModel.myFile = []; 
 

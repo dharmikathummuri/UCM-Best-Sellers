@@ -7,13 +7,13 @@ var bodyParser = require('body-parser');
 var multipart = require('parse-multipart');
 var cookieParser = require('cookie-parser');
 var busboyBodyParser = require('busboy-body-parser');
-var moment = require('moment');
-var now = moment();
-var formatted = now.format('HH:mm:ss Z');
+// var moment = require('moment');
+// var now = moment();
+// var formatted = now.format('HH:mm:ss Z');
 var cons = require('consolidate');
 var db = require('./db');
 var ExpressFileUpload= require('express-fileupload');
-var expressValidator = require('express-validator');
+// var expressValidator = require('express-validator');
 
 var posts = require('./routes/posts');
 var routes = require('./routes/index');
@@ -35,7 +35,7 @@ app.use('/',routes);
 app.use('/users',users);
 app.use('/details',details);
 app.use('/posts',posts);
-app.use(expressValidator());
+// app.use(expressValidator());
 
 
 app.use(express.static(__dirname+'/client'));

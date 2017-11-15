@@ -1,4 +1,4 @@
-myApp.controller("viewDonCtrl",['$scope','$http','$location','accessFac',function($scope,$http,$location,accessFac){
+myApp.controller("viewDonCtrl",['$scope','$http','$location','accessFac','Auth',function($scope,$http,$location,accessFac,Auth){
 	
 	 $scope.add=[];﻿
 	$scope.pageSize = 3;
@@ -6,6 +6,8 @@ myApp.controller("viewDonCtrl",['$scope','$http','$location','accessFac',functio
 	console.log("in viewAdCtrl");
 	$scope.getPosts = function(){
 		console.log("in donations");
+			$scope.auth = Auth.getUser();
+	$scope.userId = $scope.auth.data.UserId;
 
    //  	$(document).ready(function(){
 
@@ -35,6 +37,13 @@ myApp.controller("viewDonCtrl",['$scope','$http','$location','accessFac',functio
 $scope.getAccess = function(){
 		accessFac.getPermission();       //call the method in acccessFac to allow the user permission.
 	}
+
+	    $scope.handleClick = function(id){
+
+	    			console.log(id+"in handle click");
+	    			$location.path('/AdDetails/'+id);
+
+	    }
 
 
 }]);

@@ -7,8 +7,8 @@
 		<center><h1><label class="label label-default" ng-if="set.length==0">You have no messages</label></h1><br/></br></center>
 	
 	<div class="panel panel-body" ng-if="!set.length==0">
-	<table class="table table-hover"  >
-			<thead>
+	<table class="table table-hover">
+			<thead class="success">
 				<th>Message from</th>
 				<th>Subject</th>
 				<th>Message Details</th>
@@ -17,12 +17,13 @@
 
 			</thead>
 			
-			<tr ng-repeat="rowData in set | pageFilter : (currentPage-1)*pageSize | limitTo : pageSize" >
+			<tr ng-repeat="rowData in set | pageFilter : (currentPage-1)*pageSize | limitTo : pageSize">
 					<td>{{rowData.name}}</td>
 					<td>{{rowData.subject}}</td>
 					<td>{{rowData.message}}</td>
 					<td>{{rowData.msg_date | date:'fullDate'}}</td>
 					<td ><i class="glyphicon glyphicon-trash" ng-click="deleteMessage(rowData.message_id)"></i></td>
+					<td class="btn btn-success" ng-click="reply(rowData.senderId)">Reply</td>
 
 			</tr>
 				

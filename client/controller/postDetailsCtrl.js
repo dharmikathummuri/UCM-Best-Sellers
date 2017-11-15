@@ -1,10 +1,10 @@
 
-myApp.controller("postDetailsCtrl",['$scope','$routeParams','$http','$location','accessFac','Auth','UserFactory',function($scope,$routeParams,$http,$location,accessFac,Auth,UserFactory){
-
+myApp.controller("postDetailsCtrl",['$scope','$routeParams','$http','$location','accessFac','Auth','UserFactory','$route',function($scope,$routeParams,$http,$location,accessFac,Auth,UserFactory,$route){
 	console.log("post details ctrl");
 
 
 	$scope.auth = Auth.getUser();
+	$scope.verify=false;
 	 // $scope.disabled=false;
  	 // $scope.hideem= false;
  	
@@ -12,12 +12,90 @@ myApp.controller("postDetailsCtrl",['$scope','$routeParams','$http','$location',
 	$scope.result;
 	$scope.singlePost=[];
 	$scope.likes;
+	$scope.pid;
 	
 
-            // $scope.save = function () {
-            //     console.log('Data Saved.');
-            //     $scope.isDisabled = true;
-            // };
+
+     $scope.disable= function(id){
+     	console.log("in disabled");
+    		var data={
+
+     				condition:"disabled",
+     				uid:id
+     			}
+
+     	bootbox.confirm("Do you want to disable the post",function(ans){
+
+     			if(ans==true){
+
+     				 		  	$http.get('/posts/disabled',{params: data}).success(function(response){
+
+					     		console.log(response);
+				     		if(response.message=="updated"){
+
+				     			bootbox.alert("This post is disabled for other users from now");
+				     			$scope.verify =true;
+				     			//$route.reload();
+
+				     		}
+
+				     	});
+	
+     			}
+     			else{
+
+
+     			}
+    
+     	});
+   
+
+
+     }    
+
+
+     $scope.enable= function(id){
+     	console.log("in enables");
+
+     		 	var data={
+
+     				condition:"enabled",
+     				uid:id
+     			}
+
+
+     	bootbox.confirm("Do you want to enable the post",function(ans){
+
+     			if(ans==true){
+
+			     	$http.get('/posts/disabled',{params: data}).success(function(response){
+
+			     		console.log(response);
+			     			if(response.message=="updated"){
+
+			     			bootbox.alert("This post is enabled for other users from now");
+
+			     			$scope.verify =false;
+			     			// $route.reload();
+
+
+			     		}
+
+			     	});
+			     }
+
+			     else{
+
+
+
+			     }	
+
+	
+     	
+     });  
+
+ }
+
 
 	$scope.getPostDetails = function(){
 		var id = $routeParams.id;
@@ -26,6 +104,7 @@ myApp.controller("postDetailsCtrl",['$scope','$routeParams','$http','$location',
 			// console.log("in get post details");
 			$http.get('/details/postDetails/'+id).success(function(response){
 				$scope.singlePost = response;
+				$scope.pid = $scope.singlePost[0].id;
 			
 				console.log("post details user id= 2 "+ $scope.singlePost[0].UserId==$scope.userId);
 				$scope.result = angular.equals($scope.userId, $scope.singlePost[0].UserId);

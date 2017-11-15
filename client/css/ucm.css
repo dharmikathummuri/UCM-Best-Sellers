@@ -80,3 +80,18 @@ color:#424242;
 .my-disable{
     pointer-events:none;
 }
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+ 
+}
+
+table td {
+    word-wrap: break-word;         
+    overflow-wrap: break-word;     
+}
+
+td {
+    padding-right: 50px;
+}

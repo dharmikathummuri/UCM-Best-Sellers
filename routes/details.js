@@ -26,6 +26,67 @@ router.get('/select',function(req,res){
 	});
 
 });
+
+router.delete('/recallMessage/:_id',function(req,res){
+
+	var uid = req.params._id;
+	console.log(uid + "index id");
+	var sql = "delete from user_messages where message_id="+uid;
+	db.query(sql,function(err,results){
+			if(err){
+
+				console.log(err);
+			}
+			else{
+
+
+				console.log(results);
+						//var fullName = results[0];
+						// console.log(results[0]);
+				res.json({
+								status:true,
+								message:'message deleted'
+						});
+				
+
+			}
+
+
+
+	})
+
+
+
+});
+
+router.get('/getReplyUserName/:_id',function(req,res){
+
+	var uid = req.params._id;
+	console.log(uid +" reply user");
+	var sql = "select first_name,last_name from register_users where UserId="+"'"+uid+"'";
+	db.query(sql,function(err,results){
+			if(err){
+
+				console.log(err);
+			}
+			else{
+
+
+				console.log(results);
+				//var fullName = results[0];
+				console.log(results[0]);
+				res.send(results[0]);
+
+			}
+
+
+
+	})
+
+
+});
+
+
 router.delete('/deleteMessage',function(req,res){
 
 		var mid = req.query.uid;

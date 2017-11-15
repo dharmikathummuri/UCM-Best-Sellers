@@ -44,6 +44,15 @@ myApp.controller('yourMessagesCtrl',['$scope','$http','Auth','$location','$route
 
 	}
 
+	$scope.reply =function(uid){
+
+
+		console.log(uid);
+		$location.path('/replyUser/'+uid);
+
+
+	}
+
 	$scope.deleteMessage = function(index){
 
 			console.log(index);

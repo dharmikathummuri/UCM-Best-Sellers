@@ -1,8 +1,14 @@
-myApp.controller("viewAdCtrl",['$scope','$http','$location','accessFac',function($scope,$http,$location,accessFac){
+myApp.controller("viewAdCtrl",['$scope','$http','$location','accessFac','Auth',function($scope,$http,$location,accessFac,Auth){
 	
 	 $scope.add=[];﻿
 	$scope.pageSize = 3;
 	$scope.currentPage = 1;
+
+
+	$scope.auth = Auth.getUser();
+	$scope.userId = $scope.auth.data.UserId;
+
+
 	console.log("in viewAdCtrl");
 	$scope.getPosts = function(){
 		// console.log("in get posts");
@@ -30,7 +36,14 @@ myApp.controller("viewAdCtrl",['$scope','$http','$location','accessFac',function
 	        accessFac.getPermission();     
 	    }
 
+	
 
+	    $scope.handleClick = function(id){
+
+	    			console.log(id+"in handle click");
+	    			$location.path('/AdDetails/'+id);
+
+	    }
 
 
 }]);
